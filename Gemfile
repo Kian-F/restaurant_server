@@ -26,6 +26,9 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 #use for user login authentication
 gem 'knock'
 
+#Deploy to Heroku
+gem 'rails_12factor', group: :production
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
