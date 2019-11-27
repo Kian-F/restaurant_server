@@ -1,0 +1,15 @@
+{
+  "name": "restaurant_server",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.7",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "^4.2.0"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "webpack-dev-server": "^3.9.0"
+  }
+}
