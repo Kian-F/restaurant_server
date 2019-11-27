@@ -3,11 +3,11 @@ class UsersController < ApplicationController
 
   # before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
-  # before_action :authenticate_user , :only => [:current]
+  before_action :authenticate_user, :only => [:current]
 
-  # def current
-  #   render :json => current_user, :include => :orders
-  # end
+  def current
+    render :json => current_user, :include => :orders
+  end
 
   def index
     @users = User.all
@@ -15,8 +15,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find params[:id]
-    render :json => @user, :include => :orders
+
+
   end
 
   def edit

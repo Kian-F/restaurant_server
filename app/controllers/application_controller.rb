@@ -1,3 +1,3 @@
 class ApplicationController < ActionController::Base
-  # include Knock::Authenticable
+  include KnockKnock::Authenticable
 end

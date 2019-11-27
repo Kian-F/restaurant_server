@@ -25,7 +25,8 @@ gem "rack-cors", :require => 'rack/cors'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 #use for user login authentication
-gem 'knock'
+# gem 'knock'
+gem 'knock_knock'
 
 #Deploy to Heroku
 gem 'rails_12factor', group: :production

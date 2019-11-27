@@ -1,5 +1,5 @@
-#way for users to sign in
-
-class UserTokenController < Knock::AuthTokenController
-  skip_before_action :verify_authenticity_token # this is required API's
+class UserTokenController < KnockKnock::AuthTokenController
+  def auth_params
+    params.require(:auth).permit(:email, :password)
+  end
 end
