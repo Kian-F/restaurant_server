@@ -18,8 +18,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+
 #to allow the react server to talk to rails
-gem "rack-cors"
+gem "rack-cors", :require => 'rack/cors'
 # Stripe Payment Online
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 

@@ -2,10 +2,10 @@ Rails.application.routes.draw do
 
   post 'user/token' => 'user_token#create'
   get 'users/current' => 'users#current'
-  
-  root :to => "products#index"
 
-  
+  root :to => "products#index"
+  #this is added by K for testing
+  resources :tokens, only:[:create]
   resources :users
   resources :orders
   resources :line_items
