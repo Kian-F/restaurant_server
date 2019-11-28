@@ -3,10 +3,13 @@ class UsersController < ApplicationController
 
   # before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
-  before_action :authenticate_user, :only => [:current]
 
   def current
-    render :json => current_user, :include => :orders
+    if current_user.present?
+      render :json => current_user, :include => :orders
+    else
+      render :json => {}
+    end
   end
 
   def index
