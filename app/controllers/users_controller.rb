@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def current
     if current_user.present?
-      render :json => current_user, :include => :orders
+      render :json => current_user, :include => [:orders => { :include => [:line_items => {:include => :product}] }]
     else
       render :json => {}
     end
