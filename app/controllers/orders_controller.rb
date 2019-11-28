@@ -1,6 +1,40 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
+
+  def generate_order
+    order = Order.new
+    order.kind = params[:kind]
+    order.total_price = params[:total_price]
+    order.total_price = params[:total_price]
+
+    if params[:user_id].present?
+      order.user_id = params[:user_id]
+    else
+      user = User.new
+      user.orders << order
+      user.name = params[:name]
+      user.email = params[:email]
+      user.phone_number = params[:phone_number]
+      user.address = params[:address]
+      user.save
+    end
+
+    orderItems = params[:orderItems]
+
+    orderItems.each do |key, value|
+      line_item = LineItem.new
+      line_item.product_id = key
+      line_item.quantity = value
+      order.line_items << line_item
+    end
+
+    order.save
+
+    render :json => order, :include => [:line_items, :user]
+  end
+
+
   def index
     @orders = Order.all
     render :json => @orders, :include => [:user, :line_items]
@@ -19,7 +53,6 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-
 
     respond_to do |format|
       if @order.save
