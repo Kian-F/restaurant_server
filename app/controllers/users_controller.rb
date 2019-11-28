@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user, :only => [:current]
 
   def current
-    render :json => current_user, :include => :orders
+    render :json => current_user, :include => [:orders => { :include => [:line_items => {:include => :product}] }]
   end
 
   def index
