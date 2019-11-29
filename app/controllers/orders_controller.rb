@@ -6,7 +6,6 @@ class OrdersController < ApplicationController
     order = Order.new
     order.kind = params[:kind]
     order.total_price = params[:total_price]
-    order.total_price = params[:total_price]
 
     if params[:user_id].present?
       order.user_id = params[:user_id]
